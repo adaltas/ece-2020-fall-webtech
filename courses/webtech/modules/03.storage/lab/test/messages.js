@@ -1,6 +1,7 @@
 
 const supertest = require('supertest')
 const app = require('../lib/app')
+const db = require('../lib/db')
 
 describe('messages', () => {
   
@@ -34,7 +35,7 @@ describe('messages', () => {
     .get(`/channels/${channel.id}/messages`)
     .expect(200)
     messages.should.match([{
-      creation: /^d+$/
+      creation: /^d+$/,
       content: 'Hello ECE'
     }])
   })
@@ -50,7 +51,7 @@ describe('messages', () => {
     .send({content: 'Hello ECE'})
     .expect(201)
     message.should.match({
-      creation: /^d+$/
+      creation: /^d+$/,
       content: 'Hello ECE'
     })
     // Check it was correctly inserted
