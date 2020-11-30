@@ -11,7 +11,7 @@ I write two articles which clarify and cover the [basics of OpenID Connect](http
 
 ## OAuth tutorial (medium)
 
-Using the second tutorial, install Dex and reproduce all the steps with the `npx openid-cli-usage` application using GitHub as a backend connector and PRCE since your React application is a public application. Don't forget to acticate CORS in the Dex configuration, we will need it for the next task.
+Using the second tutorial, install Dex and reproduce all the steps with the `npx openid-cli-usage` application using GitHub as a backend connector and PKCE since your React application is a public application. Don't forget to acticate CORS in the Dex configuration, we will need it for the next task.
 
 ## OAuth integration (hard)
 
@@ -19,7 +19,7 @@ Go into the `login` component of your application. We only need to work with thi
 
 * the first time a user enter the application, he shall be presented with a login button;
 * he is redirected to our Open ID Connect provider (Dex) on click;
-* once logged with Dex, he is redicted to our applation; the application print the content of the id token, such as the user email, and propose a link to logout.
+* once logged with Dex, he is redirected to our application; the application print the content of the id token, such as the user email, and propose a link to logout.
 
 In your code, you shall make use of cookies twice. The first time to store the code verifier, required to success in the authorisation code challenge and token retrieval, and the second time to store the user tokens, meaning that our user is logged in and his session persistent accross refresh. Here's how your code shall behave:
 
